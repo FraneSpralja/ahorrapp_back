@@ -25,7 +25,10 @@ const corsOptions = {
     }
 }
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors({
+    origin: process.env.FRONTEND_URL
+}));
 
 app.use('/api/user', userRoutes)
 app.use('/api/gasto-diario', gastoDiarioRoutes)
