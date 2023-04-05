@@ -13,7 +13,7 @@ const emailRegistro = async (datos) => {
     const { email, nombre, token } = datos;
 
     const info = await transporter.sendMail({
-        from: "Adminstrador Ahorrap",
+        from: '"Adminstrador Ahorrap" <admin@ahorrapp.com>',
         to: email,
         subject: 'Activa tu cuenta en Ahorrapp',
         text: 'Comprueba tu cuenta en Ahorrapp',
