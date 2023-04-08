@@ -111,11 +111,6 @@ const cambiarPassword = async (req, res) => {
         return res.status(400).json({ msg: error.message })
     }
 
-    if(!user.confirmado) {
-        const error = new Error('El usuario no existe o no ha sido confirmado');
-        return res.status(403).json({ msg: error.message })
-    }
-
     try {        
         user.token = randomNum();
         await user.save()
@@ -160,6 +155,7 @@ const nuevaPassword = async (req, res) => {
     try {
         
         user.token = null;
+        user.confirmado = true;
         user.password = password;
 
         await user.save();
